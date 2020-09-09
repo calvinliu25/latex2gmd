@@ -15,3 +15,5 @@ g++ -O2 -fPIC -c output.cpp output_wrap.cxx -I/usr/include/python3.6
 g++ -shared output.o output_wrap.o -o _output.so
 
 To cleanup the SWIG interface, use "./cleanup.sh"
+
+Refer to help.txt for more details
