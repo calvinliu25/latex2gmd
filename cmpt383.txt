@@ -1,0 +1,50 @@
+Latex2gmd by Calvin Liu
+
+1. What is the overall goal of the project (i.e. what does it do, or what problem is it solving)?
+The goal of the project is to render Latex (.tex files) into Github Flavored Markdown. It allows for
+quickly importing a Latex file with mathematical symbols and formulas as a README.md file for Github
+repositories.
+
+2. Which languages did you use, and what parts of the system are implemented in each?
+I used Python to implement the "server" also acting as the main component of the system; Go was used
+for the "client" which would parse the Latex files into tokens to be processed as output; C++ was used
+to process the tokens into an output form that would be recognized as Github Flavored Markdown.
+
+3. What methods did you use to communicate between languages?
+I used RabbitMQ (message queue) to communicate between client (written in Go) and server (written in
+Python), and used SWIG to call C++ functions from Python to output a proper .md file.
+
+4. Exactly what steps should be taken to get the project working, after getting your code? [This should
+start with vagrant up and can include one or two commands to start components after that.]
+vagrant up
+vagrant ssh
+cd <into_the_project_directory>
+./compileswig.sh
+./latex2gmd.sh <filename>.tex <filename>.md
+(optional command: ./cleanup.sh will remove all the compiled swig files)
+
+Important Note: When committing to the gitlab environment, the Unix-like systems LF was converted to
+DOS/Windows style line endings (CR LF) and that causes problems when trying to run the bash scripts.
+When running the script, you might run into an error with the following message:
+
+/bin/bash^M: bad interpreter: No such file or directory
+
+to resolve this, you can do the following to each of the script files and revert the line ending back
+to Unix-like systems LF by doing the following commands (hit enter after each command):
+
+vim cleanup.sh
+:set ff=unix
+:wq
+
+do the same for compileswig.sh and latex2gmd.sh; unfortunately I do not know how to fix this on the
+gitlab repository, but this should revert the line endings and allow the scripts to run properly.
+
+Note: sample.tex is a good example of what the project can do, where I test common Latex math functions.
+
+5. What features should we be looking for when marking your project?
+- Parts of the source code has cool implementations such as lines 300-302 in client.go which uses sorting
+  of a slice of structs by a field in the structs
+- To see the output.md file, it is best to create an empty repository and copy paste the contents into
+  a README.md to see how it is rendered into Github repositories
+- SWIG interface allows certain types such as vectors to be imported directly into Python with all the
+  functions related to that library and can be seen in output.i file

@@ -1,0 +1,98 @@
+\documentclass[12pt]{article}  
+\usepackage{mathtools}  
+\begin{document}
+
+\title{Introduction to \LaTeX{}}
+\author{Author's Name}
+
+\begin{math}  
+ Pour \: 5 \times $\sfrac{1}{2}$ \: water, \\ \\  
+ = 2{}^1/_2 \: Liter    
+ % we have used \: to maintain space between the words. You can use anywhere in your document, where you required to add more space between the words in a sentence.  
+\end{math}  
+
+\maketitle
+
+capture this part only % testing out a comment
+
+\begin{math}
+ $\sfrac{a}{b}$  \\
+% the slanted fraction is first declared inside the math mode first
+Fraction = \sfrac{a}{b}
+ % after the declaration, you can use the above command anywhere in your document
+\end{math}
+
+\begin{center}
+The three equations of motion are: \\
+\end{center}
+
+\begin{equation} % to insert extra space between equations, you can leave space between the equation environments. But you should not leave space inside any environment.  
+v = u + at  
+\end{equation}  
+
+\begin{equation}  
+v^2 = u^2 + 2as  
+\end{equation}  
+  
+\begin{equation}  
+s = ut + 1/2at^2  
+\end{equation} \\  
+where,\\  
+s = displacement; \\      
+u = initial velocity; \\  
+v = final velocity; \\  
+a = acceleration; \\  
+t = time of motion  
+
+\begin{multline}
+1 + 2 + 3 + 4 + 5 + 6 \\
++ 7 + 8 + 9 + 10 + 11 + 12 \\
++ 13 + 14 + 15 + 16 + 17 + 18
+\end{multline}
+
+\section{Introduction}
+Here is the text of your introduction.
+
+\begin{equation}
+    \label{simple_equation}
+    \alpha = \sqrt{ \beta }
+\end{equation}
+
+\begin{align*}
+r(x) = \frac{1}{x^2 + y^2 + z^2} = 1 \\ \\ % you can insert any type of fraction according to the requirements.
+g(x) = \frac{\frac{1}{a}+\frac{1}{b}}{a - b} \\ \\
+f(x) = \frac{a - b}{\frac{1}{a} - \frac{1}{b}} \\
+\end{align*}
+
+\subsection{Subsection Heading Here}
+Write your subsection text here.
+
+\begin{align*}
+    a + b = c \\
+    5 - 4 = 1 \\
+    x ^2 + y^2 = z^2
+\end{align*}
+
+\begin{align*}
+\frac{a}{b} = \frac{c}{d}
+\end{align*}
+
+\begin{align*}
+r(x) = \frac{1}{x^2 + y^2 + z^2} = 1 \\ \\ % you can insert any type of fraction according to the requirements.
+g(x) = \frac{\frac{1}{a}+\frac{1}{b}}{a - b} \\ \\
+f(x) = \frac{a - b}{\frac{1}{a} - \frac{1}{b}} \\
+\end{align*}
+
+\section{Conclusion}
+Write your conclusion here.
+
+\begin{flalign}
+a & = b &   % for the elements of the first column, two ampersand symbols are inserted.
+12 & = 21 \\
+ABC & = DEF &
+c & = e + d
+\end{flalign}
+
+More neat text
+
+\end{document}
